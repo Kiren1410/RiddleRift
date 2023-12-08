@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#2196F3</color>
+    <color name="app_bg">#0f4745</color>
+    <color name="aqua">#eafefd</color>
+    <color name="main">#106d69</color>
+    <color name="ebony_clay">#242E35</color>
+    <color name="error">#F44336</color>
+</resources>

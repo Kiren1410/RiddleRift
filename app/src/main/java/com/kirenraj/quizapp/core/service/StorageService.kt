@@ -1,0 +1,27 @@
+package com.kirenraj.quizapp.core.service
+
+import android.net.Uri
+import android.util.Log
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageException
+import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.tasks.await
+import timber.log.Timber
+
+class StorageService(
+    private val storage: StorageReference = FirebaseStorage.getInstance().reference
+) {
+    suspend fun addImage(name: String, uri: Uri) {
+        // Check Android version and use contentResolver.openInputStream(uri) accordingly
+        storage.child(name).putFile(uri).await()
+    }
+
+    suspend fun getImage(name: String): Uri? {
+        return try {
+            storage.child(name).downloadUrl.await()
+        } catch (e: StorageException) {
+            Timber.e(e, "Error fetching image from storage: $name")
+            null
+        }
+    }
+}
