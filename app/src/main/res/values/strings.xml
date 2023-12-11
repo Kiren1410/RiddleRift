@@ -49,5 +49,7 @@
     <string name="score_8_10">Score: 8/10</string>
     <string name="result">Result:</string>
     <string name="your_final_result">Your Final Result</string>
-    <string name="timeout">Oops..Time is up</string>
+    <string name="timeout_message">Oops.....time ran out :( :  </string>
+    <string name="score_message">You Scored: </string>
+
 </resources>

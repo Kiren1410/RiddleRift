@@ -20,6 +20,12 @@
         app:popUpToInclusive="true"
         app:destination="@id/teacherHomeFragment"/>
 
+    <action
+        android:id="@+id/toLogin2"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/teacherHomeFragment"
+        app:popUpToInclusive="true"/>
+
 
     <action
         android:id="@id/leaderBoardFragment"
@@ -47,11 +53,7 @@
         android:id="@+id/homeFragment"
         android:name="com.kirenraj.quizapp.ui.screens.studentHome.StudentHomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_student_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_teacherHomeFragment"
-            app:destination="@id/teacherHomeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_student_home" />
     <fragment
         android:id="@+id/tabContainerFragment"
         android:name="com.kirenraj.quizapp.ui.screens.tabContainer.TabContainerFragment"

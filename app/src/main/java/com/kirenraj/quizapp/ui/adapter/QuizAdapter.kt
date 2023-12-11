@@ -46,7 +46,6 @@ class QuizAdapter(
                 tvTitle.text = quiz.title
 
 
-
                 btnDelete.setOnClickListener {
                     listener?.onDelete(quiz)
                 }

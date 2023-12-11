@@ -1,5 +1,6 @@
 package com.kirenraj.quizapp.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -42,6 +43,7 @@ class ResultAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(result: Result) {
             binding.run {
+                Log.d("debugging", result.toString())
                 tvUsername.text = result.name
                 tvScore.text = result.result
                 tvQuizId.text = result.quizId

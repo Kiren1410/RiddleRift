@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -85,28 +87,11 @@ class QuizPageFragment : BaseFragment<FragmentQuizPageBinding>() {
         }
     }
 
-    private fun handleTimerEnd() {
-        binding.run {
-            llQuestions.visibility = View.GONE
-            constraintLayout2.visibility = View.GONE
-            llResult.visibility = View.VISIBLE
-            btnNext.visibility = View.GONE
-            val timeoutText = "Oops time ran out: "
-            val endResult = "$timeoutText$result/${myQuestions.size}"
-            tvResult.text = endResult
-            viewModel.addResult(result.toString(), args.quizId)
-        }
-    }
-
     private fun handleAnswerSelection() {
-        val selectedRadioButtonId = binding.rgOptions.checkedRadioButtonId
-        selectedAnswer = when (selectedRadioButtonId) {
-            R.id.option1 -> binding.option1.text.toString()
-            R.id.option2 -> binding.option2.text.toString()
-            R.id.option3 -> binding.option3.text.toString()
-            R.id.option4 -> binding.option4.text.toString()
-            else -> ""
-        }
+        val selectedRadioButton = binding.rgOptions.findViewById<RadioButton>(
+            binding.rgOptions.checkedRadioButtonId
+        )
+        selectedAnswer = selectedRadioButton?.text?.toString() ?: ""
         correctAnswer = myQuestions[currentIndex].correctAnswer
         if (selectedAnswer == correctAnswer) {
             result += 1
@@ -121,25 +106,35 @@ class QuizPageFragment : BaseFragment<FragmentQuizPageBinding>() {
         currentIndex++
         if (currentIndex < myQuestions.size) {
             nextPage(myQuestions[currentIndex])
-            resetRadioButtons() // Reset radio button state
+            resetRadioButtons()
         } else {
             showResult()
         }
     }
 
-
-    private fun showResult() {
+    private fun updateResultView(message: String) {
         binding.run {
             llQuestions.visibility = View.GONE
             constraintLayout2.visibility = View.GONE
             llResult.visibility = View.VISIBLE
             btnNext.visibility = View.GONE
-            val greetingText = "You Scored: "
-            val fullName = "$greetingText$result/${myQuestions.size}"
-            tvResult.text = fullName
+            val resultText = "$message$result/${myQuestions.size}"
+            tvResult.text = resultText
             viewModel.addResult(result.toString(), args.quizId)
         }
     }
+
+    private fun showResult() {
+        val resultText = getString(R.string.score_message)
+        updateResultView(resultText)
+    }
+
+    private fun handleTimerEnd() {
+        val timeoutText = getString(R.string.timeout_message)
+        updateResultView(timeoutText)
+        binding.tvResult.setTextColor(ContextCompat.getColor(requireContext(), R.color.error))
+    }
+
 
     private fun createQuizQuestions(quiz: Quiz): List<QuizQuestions> {
         return quiz.titles.indices.map { i ->

@@ -68,7 +68,7 @@
             app:startIconDrawable="@drawable/ic_id">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etQuizName"
+                android:id="@+id/etQuizId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Quiz Id"
@@ -85,7 +85,7 @@
             app:startIconDrawable="@drawable/baseline_title_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etQuizId"
+                android:id="@+id/etQuizName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Title"

@@ -36,7 +36,7 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_person" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/tvUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     android:layout_height="20dp"
                     android:src="@drawable/ic_diamond" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/tvScore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                     android:layout_height="15dp"
                     android:src="@drawable/ic_id" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/tvQuizId"
                     style="@style/TextAppearance.Material3.BodyLarge"
                     android:layout_width="wrap_content"

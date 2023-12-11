@@ -22,34 +22,35 @@ import java.io.InputStreamReader
 
 
 @AndroidEntryPoint
-class TeacherAddQuizFragment: BaseFragment<FragmentTeacherAddQuizBinding>() {
+class TeacherAddQuizFragment : BaseFragment<FragmentTeacherAddQuizBinding>() {
     override val viewModel: TeacherAddQuizViewModelImpl by viewModels()
 
     private var shouldNavigateBack = false
 
-    private val getContent =
-        registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            uri?.let {
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            val documentFile = DocumentFile.fromSingleUri(requireContext(), it)
 
-                val documentFile = DocumentFile.fromSingleUri(requireContext(), it)
-                val originalFileName = documentFile?.name
-                Log.d("debugging", "Original File Name: $originalFileName")
-
+            if (documentFile != null) {
+                val originalFileName = documentFile.name
                 binding.run {
-                   tvCsvName.text = originalFileName.toString()
+                    tvCsvName.text = originalFileName.toString()
                 }
-
 
                 val csvFile = requireActivity().contentResolver.openInputStream(it)
                 val isr = InputStreamReader(csvFile)
 
                 BufferedReader(isr).readLines().let { lines ->
-                    Log.d("debugging", lines.toString())
                     viewModel.readCsv(lines)
-
                 }
+            } else {
+                // Handle the case when DocumentFile is null (e.g., invalid URI)
+                Log.e("TeacherAddQuizFragment", "Error creating DocumentFile from URI: $it")
+                // You might want to show an error message or take appropriate action
             }
         }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +60,6 @@ class TeacherAddQuizFragment: BaseFragment<FragmentTeacherAddQuizBinding>() {
         binding = FragmentTeacherAddQuizBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 
 
     override fun setupUiComponents(view: View) {
@@ -74,7 +74,7 @@ class TeacherAddQuizFragment: BaseFragment<FragmentTeacherAddQuizBinding>() {
                 // Check if quizId, title, and CSV file are not empty before proceeding
                 if (quizId.isNotBlank() && title.isNotBlank() && tvCsvName.text.isNotBlank()) {
                     if (timer != null) {
-                        viewModel.addQuiz(quizId, title, timer)
+                        viewModel.addQuiz(title, quizId, timer)
                     }
                     val action = TeacherAddQuizFragmentDirections.toTeacherHome()
                     navController.navigate(action)

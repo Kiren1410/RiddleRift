@@ -39,7 +39,7 @@ class TabContainerFragment : Fragment() {
                 0 -> {
                     tab.text = "Home"
                 }
-                else -> {
+                1 -> {
                     tab.text = "Profile"
                 }
             }

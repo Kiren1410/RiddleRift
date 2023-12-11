@@ -49,7 +49,6 @@ class QuizRepoImpl(
 
     override suspend fun getQuizById(quizId: String): Quiz? {
         val doc = getDbRef().document(quizId).get().await()
-        Log.d("debugging", doc.data.toString())
         return doc.data?.let {
             it["id"] = doc.id
             Quiz.fromHashMap(it)

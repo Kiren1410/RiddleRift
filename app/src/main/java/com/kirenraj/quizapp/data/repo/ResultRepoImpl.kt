@@ -56,7 +56,6 @@ class ResultRepoImpl(
                         score.add(Result.fromHashMap(it))
                     }
                 }
-//                Log.d("ScoreRepoImpl", "Scores for Quiz ID: $score")
                 trySend(score)
             }
         }

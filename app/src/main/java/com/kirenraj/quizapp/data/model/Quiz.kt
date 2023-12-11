@@ -8,7 +8,7 @@ data class Quiz(
     val titles: List<String>,
     val options: List<String>,
     val answers: List<String>,
-    val createdBy: String,
+    val createdBy: String = "",
     val timer: Long,
     val csv: String = ""
 ) {

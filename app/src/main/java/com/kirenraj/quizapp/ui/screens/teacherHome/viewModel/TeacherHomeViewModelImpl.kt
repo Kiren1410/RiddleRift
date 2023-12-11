@@ -52,7 +52,6 @@ class TeacherHomeViewModelImpl @Inject constructor(
 
     override fun getQuiz() {
         viewModelScope.launch(Dispatchers.IO) {
-            Log.d("debugging", "getQuiz: ${authService.getCurrentUser()}")
             quizRepo.getQuizs().collect {
                 _quiz.value = it
             }
@@ -90,7 +89,6 @@ class TeacherHomeViewModelImpl @Inject constructor(
     override fun logout() {
         viewModelScope.launch{
             errorHandler {  authService.logout() }
-            Log.d("", "logout..${logout()}")
         }
     }
 }

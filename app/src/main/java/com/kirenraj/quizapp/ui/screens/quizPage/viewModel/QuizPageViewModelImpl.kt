@@ -83,7 +83,7 @@ class QuizPageViewModelImpl @Inject constructor(
     fun addResult(result: String, quizId: String) {
         viewModelScope.launch(Dispatchers.IO) {
             errorHandler {
-                resultRepo.addResult(Result(result, user.value.name, quizId))
+                resultRepo.addResult(Result(result=result, name = user.value.name, quizId = quizId))
             }
         }
     }

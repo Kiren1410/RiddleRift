@@ -40,16 +40,15 @@ class TeacherHomeFragment : BaseFragment<FragmentTeacherHomeBinding>() {
         super.setupUiComponents(view)
         setupAdapter()
 
+        binding.fabLogout.setOnClickListener {
+            viewModel.logout()
+        }
+
         binding.fabAdd.setOnClickListener {
             val action = TeacherHomeFragmentDirections.actionTeacherHomeToTeacherAddQuizFragment()
             navController.navigate(action)
         }
 
-        binding.fabLogout.setOnClickListener {
-            viewModel.logout()
-            val action = TeacherHomeFragmentDirections.toLogin()
-            navController.navigate(action)
-        }
 
     }
 
@@ -66,7 +65,7 @@ class TeacherHomeFragment : BaseFragment<FragmentTeacherHomeBinding>() {
 
         lifecycleScope.launch {
             viewModel.finish.collect {
-                val action = TeacherHomeFragmentDirections.toLogin()
+                val action = TeacherHomeFragmentDirections.toLogin2()
                 navController.navigate(action)
             }
         }
@@ -77,6 +76,12 @@ class TeacherHomeFragment : BaseFragment<FragmentTeacherHomeBinding>() {
             viewModel.quiz.collect {
                 adapter.setQuiz(it)
             }
+        }
+
+        binding.fabLogout.setOnClickListener {
+            viewModel.logout()
+            val action = TeacherHomeFragmentDirections.toLogin()
+            navController.navigate(action)
         }
 
 

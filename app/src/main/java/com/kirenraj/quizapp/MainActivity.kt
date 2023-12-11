@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getUserRole() {
+    private fun getUserRole() {
         lifecycleScope.launch {
             repo.getCurrentUser()?.let {
                 _user.emit(it)

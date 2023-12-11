@@ -2,18 +2,18 @@ package com.kirenraj.quizapp.data.model
 
 data class Result(
     val id : String = "" ,
+    val name: String = "",
     val result: String = "",
     val quizId: String = "",
-    val createdAt: Long = System.currentTimeMillis(),
-    val name: String = ""
+    val createdAt: Long = System.currentTimeMillis()
 ) {
     fun toHashMap(): HashMap<String, Any?> {
         return hashMapOf(
             "id" to id,
+            "name" to name,
             "result" to result,
             "quizId" to quizId,
-            "createdAt" to createdAt,
-            "name" to name
+            "createdAt" to createdAt
         )
     }
 
@@ -21,10 +21,10 @@ data class Result(
         fun fromHashMap(hash: Map<String, Any>): Result {
             return Result(
                 id = hash["id"].toString(),
+                name = hash["name"].toString(),
                 result = hash["result"].toString(),
                 quizId = hash["quizId"].toString(),
-                createdAt = hash["createdAt"].toString().toLong(),
-                name = hash["name"].toString()
+                createdAt = hash["createdAt"].toString().toLong()
             )
         }
     }

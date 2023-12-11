@@ -73,7 +73,7 @@ abstract class BaseFragment<T:ViewBinding> : Fragment() {
                 snackbar.setBackgroundTint(
                     ContextCompat.getColor(
                         requireContext(),
-                        R.color.main
+                        R.color.success
                     )
                 ).setTextColor(
                     ContextCompat.getColor(
