@@ -1,7 +1,7 @@
 package com.kirenraj.quizapp.ui.screens.register.viewModel
 
 import androidx.lifecycle.viewModelScope
-import com.bryan.personalproject.ui.screens.base.viewModel.BaseViewModel
+import com.kirenraj.quizapp.ui.screens.base.BaseViewModel
 
 import com.kirenraj.quizapp.core.service.AuthService
 import com.kirenraj.quizapp.data.model.User

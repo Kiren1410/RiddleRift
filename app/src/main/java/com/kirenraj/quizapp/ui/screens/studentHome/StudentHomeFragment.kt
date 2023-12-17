@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.bryan.personalproject.ui.screens.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import com.kirenraj.quizapp.databinding.FragmentStudentHomeBinding
+import com.kirenraj.quizapp.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.ui.screens.studentHome.viewModel.StudentHomeViewModelImpl
 import com.kirenraj.quizapp.ui.screens.tabContainer.TabContainerFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint

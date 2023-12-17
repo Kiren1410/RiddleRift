@@ -1,10 +1,9 @@
 package com.kirenraj.quizapp.ui.screens.leaderBoard.viewModel
 
 import androidx.lifecycle.viewModelScope
-import com.bryan.personalproject.ui.screens.base.viewModel.BaseViewModel
+import com.kirenraj.quizapp.ui.screens.base.BaseViewModel
 import com.kirenraj.quizapp.data.model.Result
 import com.kirenraj.quizapp.data.repo.ResultRepo
-import com.kirenraj.quizapp.ui.screens.leaderBoard.viewModel.LeaderBoardViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

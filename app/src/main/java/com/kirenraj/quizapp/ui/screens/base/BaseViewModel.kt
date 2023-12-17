@@ -1,4 +1,4 @@
-package com.bryan.personalproject.ui.screens.base.viewModel
+package com.kirenraj.quizapp.ui.screens.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

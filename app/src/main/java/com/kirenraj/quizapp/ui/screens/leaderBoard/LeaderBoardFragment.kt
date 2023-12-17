@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bryan.personalproject.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.databinding.FragmentLeaderBoardBinding
 import com.kirenraj.quizapp.ui.adapter.ResultAdapter
+import com.kirenraj.quizapp.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.ui.screens.leaderBoard.viewModel.LeaderBoardViewModelImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

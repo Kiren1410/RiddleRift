@@ -2,7 +2,7 @@ package com.kirenraj.quizapp.ui.screens.quizPage.viewModel
 
 import android.os.CountDownTimer
 import androidx.lifecycle.viewModelScope
-import com.bryan.personalproject.ui.screens.base.viewModel.BaseViewModel
+import com.kirenraj.quizapp.ui.screens.base.BaseViewModel
 import com.kirenraj.quizapp.core.service.AuthService
 import com.kirenraj.quizapp.data.model.Quiz
 import com.kirenraj.quizapp.data.model.Result

@@ -10,11 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.bryan.personalproject.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.R
 import com.kirenraj.quizapp.data.model.Quiz
 import com.kirenraj.quizapp.data.model.QuizQuestions
 import com.kirenraj.quizapp.databinding.FragmentQuizPageBinding
+import com.kirenraj.quizapp.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.ui.screens.quizPage.viewModel.QuizPageViewModelImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

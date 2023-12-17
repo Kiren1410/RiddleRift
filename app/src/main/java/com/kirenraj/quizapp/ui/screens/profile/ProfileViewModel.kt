@@ -3,7 +3,7 @@ package com.kirenraj.quizapp.ui.screens.profile
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.bryan.personalproject.ui.screens.base.viewModel.BaseViewModel
+import com.kirenraj.quizapp.ui.screens.base.BaseViewModel
 import com.google.firebase.storage.StorageException
 
 

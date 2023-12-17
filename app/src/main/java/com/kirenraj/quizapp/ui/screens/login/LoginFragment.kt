@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.bryan.personalproject.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.databinding.FragmentLoginBinding
+import com.kirenraj.quizapp.ui.screens.base.BaseFragment
 import com.kirenraj.quizapp.ui.screens.login.viewModel.LoginViewModelImpl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

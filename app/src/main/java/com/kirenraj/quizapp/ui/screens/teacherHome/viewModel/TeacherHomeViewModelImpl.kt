@@ -1,11 +1,8 @@
 package com.kirenraj.quizapp.ui.screens.teacherHome.viewModel
 
-import android.graphics.LinearGradient
 import android.net.Uri
-import android.util.Log
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bryan.personalproject.ui.screens.base.viewModel.BaseViewModel
+import com.kirenraj.quizapp.ui.screens.base.BaseViewModel
 import com.kirenraj.quizapp.core.service.AuthService
 import com.kirenraj.quizapp.data.model.Quiz
 import com.kirenraj.quizapp.data.model.User
